@@ -1,4 +1,10 @@
+# coding: utf-8
 Rails.application.routes.draw do
+  resources :blogs
+  
+  #トップページをblogs.indexへ変更
+  root 'blogs#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
