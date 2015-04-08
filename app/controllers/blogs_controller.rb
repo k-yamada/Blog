@@ -14,8 +14,7 @@ class BlogsController < ApplicationController
   end
   
   def create
-    @blog = Blog.new(params[:blog].permit(:title) ,
-                     params[:blog].permit(:title))
+    @blog = Blog.new(params[:blog].permit(:title , :main))
     @blog.save
     redirect_to blogs_path
   end
