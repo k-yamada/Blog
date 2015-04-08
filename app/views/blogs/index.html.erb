@@ -11,14 +11,21 @@
   <% @blog.each do |blog| %>
   <li>
     <!--タイトルを表示-->
-    タイトル:
     <%= blog.title%>
-    <!--内容の表示-->
-    本文:
-    <%= blog.main%>
     <!--投稿時間の表示-->
-    投稿日時
+
+    <br>
+    <!--内容の表示-->
+    <%= simple_format(blog.main)%>
+    <br>
+    投稿日時 :
     <%= blog.created_at %>
+    編集日時 :
+    <%= blog.updated_at %>
+    <br>
+    <!--記事削除へのリンク-->
+    <%= link_to "[削除]", blog_path(blog.id),method: :delete, data:
+	{confirm: "are you sure?"} %>
   </li>
   <% end %>
 </u1>
