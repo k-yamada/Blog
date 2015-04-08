@@ -1,0 +1,20 @@
+<!--記事の全文を表示するページ-->
+
+
+<%=@blog.title%><br>
+
+<%= simple_format(@blog.main) %>
+<br>
+投稿日時 :
+<%= @blog.created_at %>
+編集日時 :
+<%= @blog.updated_at %>
+<br>
+
+
+<!--記事編集へのリンク-->
+<%= link_to "[編集]", edit_blog_path(@blog.id) %>
+
+<!--記事削除へのリンク-->
+<%= link_to "[削除]", blog_path(@blog.id),method: :delete, data:
+    {confirm: "記事を削除してもよろしいですか。"} %>

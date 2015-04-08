@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Netblog</title>
+  <title>研修用：簡易ブログ</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+  <%= yield %>
 
-<%= yield %>
+  <br>
+  <%= link_to "トップへ" , blogs_path %>
 
 </body>
 </html>
