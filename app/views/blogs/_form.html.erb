@@ -8,10 +8,12 @@
   <!--本文入力フィールド-->
   本文<br>
   <%= f.text_area :main, :size =>"40x20"%><br>
+  <!--決定ボタン　@ボタンの名前は、@labelで個別に指定-->
+  <%= f.submit([@label])%>
 </p>
-<p>
-  
-  <%= f.submit(["投稿"])%>
-</p>
-
 <% end %>
+<% if @blog.errors.any? %>
+<%= @blog.errors.messages[:title][0] %>
+<%= @blog.errors.messages[:main][0] %>
+<% end %>
+

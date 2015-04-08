@@ -1,10 +1,7 @@
-<!--簡易ブログのトップページ
-    トップページは一覧画面とする。
-  -->
-<h1>簡易ブログ</h1>
+<!--簡易ブログのトップページ　トップページは一覧画面とする。-->
 
 <!-- 新規投稿画面へのリンクを作成 -->
-<%= link_to "新しい記事を掲載する", new_blog_path %>
+<%= link_to "新しい記事を投稿する", new_blog_path %>
 
 <!-- 投稿記事一覧を表示するための処理 -->
 <u1>
@@ -13,18 +10,18 @@
     <!--タイトルを表示
 	また、タイトルをクリックした時に、全文を表示するリンクを作る
       -->
-    
+    タイトル:
     <%= link_to blog.title, blog_path(blog.id) %>
     <br>
     <!--本文の表示-->
-    <%= simple_format(truncate(blog.main, :length=>10) )%>
+    <%= simple_format(truncate(blog.main, :length => 10 ,:separator=>"¥r") )%>
     <br>
     <!--投稿及び変更日時の表示-->
     投稿日時 :
     <%= blog.created_at %>
+    
     編集日時 :
     <%= blog.updated_at %>
-    <br>
     
     <!--記事編集へのリンク-->
     <%= link_to "[編集]", edit_blog_path(blog.id) %>
@@ -32,7 +29,8 @@
     <!--記事削除へのリンク-->
     <%= link_to "[削除]", blog_path(blog.id),method: :delete, data:
 	{confirm: "記事を削除してもよろしいですか。"} %>
-    
+    <br>
+    <br>
   </li>
   <% end %>
 </u1>

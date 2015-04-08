@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   #before_actionの設定
   before_action :set_blog, only: [:show, :destroy, :edit, :update]
   
-  #トップページの定義
+  #トップページ
   def index
     @blog = Blog.all
   end
@@ -23,24 +23,27 @@ class BlogsController < ApplicationController
       render 'new'
     end
   end
-
+  
   #記事編集ページ
   def edit
-    
+    #必要な処理は、before_actionで定義済み
   end
-
+  
   #記事編集update
   def update
     
-    @blog.update(blogs_params)
-    redirect_to blogs_path
+    if @blog.update(blogs_params)
+      redirect_to blogs_path
+    else
+      render 'edit'
+    end
   end
-
+  
   #全文表示ページ
   def show
-    
+    #必要な処理は、before_actionで定義済み
   end
-
+  
   #記事削除コマンド
   def destroy
     @blog.destroy
@@ -48,20 +51,20 @@ class BlogsController < ApplicationController
   end
   
   private
-
+  
   #記事のidを取得するメソッド
   def set_blog
     @blog = Blog.find(params[:id])
   end
-
+  
   #入力されたパラメータを保持する。
   def blogs_params
     params[:blog].permit(:title, :main)
   end
-
+  
   #全文表示  
   def show
-    
+    #必要な処理は、before_actionで定義済み
   end
   
 end
