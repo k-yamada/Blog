@@ -10,19 +10,21 @@
 <u1>
   <% @blog.each do |blog| %>
   <li>
-    <!--タイトルを表示-->
-    <%= blog.title%>
-    <!--投稿時間の表示-->
-
+    <!--タイトルを表示
+	また、タイトルをクリックした時に、全文を表示するリンクを作る
+      -->
+    
+    <%= link_to blog.title, blog_path(blog.id) %>
     <br>
-    <!--内容の表示-->
-    <%= simple_format(blog.main)%>
+    <!--本文の表示-->
+    <%= simple_format(truncate(blog.main, :length=>10 , :separator=>"¥n"))%>
     <br>
     投稿日時 :
     <%= blog.created_at %>
     編集日時 :
     <%= blog.updated_at %>
     <br>
+    
     <!--記事編集へのリンク-->
     <%= link_to "[編集]", edit_blog_path(blog.id) %>
     

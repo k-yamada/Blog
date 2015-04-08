@@ -2,7 +2,7 @@
 class BlogsController < ApplicationController
   
   #
-  before_action :set_blog, only: [:show, :destroy, :edit, :update]
+  before_action :set_blog, only: [:show, :destroy, :edit, :update, :show]
   #トップページの定義
   #トップページには、投稿へのリンク・及び全ての記事の表示全ての記事に置いて編集ページ（内容の編集・削除）を行えるようにする。
   def index
@@ -49,6 +49,11 @@ class BlogsController < ApplicationController
 
   def blogs_params
     params[:blog].permit(:title, :main)
+  end
+
+  #全文表示  
+  def show
+    
   end
   
 end
