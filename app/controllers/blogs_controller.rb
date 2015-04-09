@@ -1,10 +1,9 @@
 # coding: utf-8
 class BlogsController < ApplicationController
   
-  #before_actionの設定
-  before_action :set_blog, only: [:show, :destroy, :edit, :update]
-  
-  #トップページ
+  before_action :set_blog, only: [:show, :destroy, :edit, :update, :show]
+  #トップページの定義
+  #トップページには、投稿へのリンク・及び全ての記事の表示全ての記事に置いて編集ページ（内容の編集・削除）を行えるようにする。
   def index
     @blog = Blog.all
   end
@@ -60,6 +59,11 @@ class BlogsController < ApplicationController
   #入力されたパラメータを保持する。
   def blogs_params
     params[:blog].permit(:title, :main)
+  end
+
+  #全文表示  
+  def show
+    
   end
   
   #全文表示  

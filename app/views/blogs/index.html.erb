@@ -10,11 +10,11 @@
     <!--タイトルを表示
 	また、タイトルをクリックした時に、全文を表示するリンクを作る
       -->
-    タイトル:
+    
     <%= link_to blog.title, blog_path(blog.id) %>
     <br>
     <!--本文の表示-->
-    <%= simple_format(truncate(blog.main, :length => 10 ,:separator=>"¥r") )%>
+    <%= simple_format(truncate(blog.main, :length=>10 , :separator=>"¥n"))%>
     <br>
     <!--投稿及び変更日時の表示-->
     投稿日時 :
